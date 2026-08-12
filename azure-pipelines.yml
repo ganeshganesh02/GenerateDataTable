@@ -1,0 +1,26 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  Default
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- task: UiPathInstallPlatform@6
+  inputs:
+    cliVersion: 'CustomVersion'
+    cliNupkgPath: 'C:\Users\Ganesh.Ganesh\Downloads\UiPath.CLI.Windows.25.10.21.nupkg'
+
+- task: UiPathPack@6
+  inputs:
+    projectJsonPath: '$(Build.SourcesDirectory)'
+    versionType: 'AutoVersion'
+    outputPath: '$(Build.ArtifactStagingDirectory)\Output'
+    orchestratorConnection: 'solution_ext'
