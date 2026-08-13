@@ -16,7 +16,7 @@ steps:
 - task: UiPathInstallPlatform@6
   inputs:
     cliVersion: 'CustomVersion'
-    cliNupkgPath: 'C:\Users\Ganesh.Ganesh\Downloads\UiPath.CLI.Windows.25.10.21.nupkg'
+    cliNupkgPath: 'C:\Users\Ganesh.Ganesh\Downloads\UiPath.CLI.Windows.25.10.12'
 
 - task: UiPathPack@6
   inputs:
